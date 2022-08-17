@@ -3,6 +3,10 @@
     <strong>Email:</strong>
     <%= link_to user.email, user_path(user), class: 'rounded-circle', title: user.email %>
   </p>
+  <p class="mb-2">
+    <strong>Name:</strong>
+    <%= link_to user.name, user_path(user), class: 'rounded-circle', title: user.email %>
+  </p>
 
   <hr>
     <%= link_to 'Edit this user', edit_user_path(user), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" %>
