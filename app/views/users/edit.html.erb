@@ -1,4 +1,7 @@
 <div>
-  <h1 class="font-bold text-4xl">Users#edit</h1>
-  <p>Find me in app/views/users/edit.html.erb</p>
+  <h1 class="font-bold text-4xl">Editing user</h1>
+
+  <%= render "form", user: @user %>
+  <%= button_to 'Destroy this user', user_path(@user), method: :delete, class: "rounded-lg py-3 px-5 bg-sky-500 hover:bg-sky-700 inline-block font-medium mt-2" %>
+
 </div>

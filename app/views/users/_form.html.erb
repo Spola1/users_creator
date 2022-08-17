@@ -1,0 +1,38 @@
+<%= form_with(model: user, class: "contents") do |form| %>
+  <% if user.errors.any? %>
+    <div>
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email %><br />
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= form.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %><br />
+    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit 'Save', class: "rounded-lg py-3 px-5 bg-sky-500 hover:bg-sky-700 inline-block font-medium mt-2" %>
+  </div>
+
+  <%= link_to "Back to user", user_path(user), class: "rounded-lg py-3 px-5 bg-sky-500 hover:bg-sky-700 inline-block font-medium mt-2" %>
+<% end %>

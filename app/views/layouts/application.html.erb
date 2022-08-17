@@ -9,6 +9,18 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= button_to t('views.links.profile'), current_user, method: :get, class: "rounded-lg py-3 px-5 bg-sky-500 hover:bg-sky-700 inline-block font-medium m-2" %>
+      <%= button_to t('views.links.logout'), destroy_user_session_path, method: :delete, class: "rounded-lg py-3 px-5 bg-sky-500 hover:bg-sky-700 inline-block font-medium m-2" %>
+    <% else %>
+      <%= button_to t('views.links.login'), new_user_session_path, method: :get, class: "rounded-lg py-3 px-5 bg-sky-500 hover:bg-sky-700 inline-block font-medium m-2" %>
+      <%= button_to t('views.links.register'), new_user_registration_path, method: :get, class: "rounded-lg py-3 px-5 bg-sky-500 hover:bg-sky-700 inline-block font-medium m-2" %>
+    <% end %>
+    <div class="m-2">
+      <% if current_user.present? %>
+        <strong>Current user:</strong> <%= link_to current_user.email, user_path(current_user) %>
+      <% end %>
+    </div>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
