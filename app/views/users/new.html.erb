@@ -1,7 +1,7 @@
 <div>
-  <h1>New user</h1>
+  <h1 class="font-bold text-4xl mr-5">New User</h1>
 
   <%= render "form", user: @user %>
 
-  <%= link_to 'Back to users', users_path %>
+  <%= link_to 'Back to users', users_path, class: "rounded-lg py-3 px-5 bg-sky-500 hover:bg-sky-700 inline-block font-medium mt-2" %>
 </div>
