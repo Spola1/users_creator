@@ -9,6 +9,10 @@
   </p>
 
   <hr>
+  <% if current_user == user %>
+    <%= link_to 'Edit this user', edit_user_registration_path(user), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" %>
+  <% else %>
     <%= link_to 'Edit this user', edit_user_path(user), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" %>
+  <% end %>
   <hr>
 </div>
